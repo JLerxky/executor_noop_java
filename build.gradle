@@ -12,6 +12,8 @@ dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-grpc'
     implementation 'io.quarkus:quarkus-arc'
+    implementation("io.quarkus:quarkus-kubernetes")
+    implementation("io.quarkus:quarkus-smallrye-health")
     testImplementation 'io.quarkus:quarkus-junit5'
 }
 
@@ -21,6 +23,10 @@ version '1.0.0-SNAPSHOT'
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
+}
+
+quarkus {
+    quarkusBuildProperties.put("quarkus.grpc.codegen.proto-directory", "${project.projectDir}/proto/protos")
 }
 
 test {
