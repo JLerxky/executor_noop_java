@@ -2,7 +2,6 @@ package com.citacloud;
 
 import blockchain.Blockchain.Block;
 
-import com.google.protobuf.ByteString;
 import common.Common;
 import common.Common.HashResponse;
 import executor.Executor;
@@ -17,6 +16,7 @@ public class ExecutorGrpcService implements ExecutorService {
 
     @Override
     public Uni<HashResponse> exec(Block request) {
+        // TODO
         return Uni.createFrom()
                 .item(() -> Common.HashResponse.newBuilder()
                         .setStatus(Common.StatusCode.newBuilder().setCode(0).build())
@@ -25,8 +25,9 @@ public class ExecutorGrpcService implements ExecutorService {
 
     @Override
     public Uni<CallResponse> call(CallRequest request) {
+        // TODO
         return Uni.createFrom()
-                .item(() -> Executor.CallResponse.newBuilder().setValue(ByteString.EMPTY).build());
+                .item(() -> Executor.CallResponse.newBuilder().build());
     }
 
 }
